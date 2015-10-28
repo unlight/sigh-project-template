@@ -1,0 +1,19 @@
+{
+  "name": "sigh-project-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel": "^5.8.29",
+    "browser-sync": "^2.9.11",
+    "gulp-uglify": "^1.4.2",
+    "sigh": "^0.12.22",
+    "sigh-babel": "^0.11.6",
+    "sigh-browser-sync": "^0.1.0",
+    "sigh-mocha": "^0.1.2",
+    "sigh-process": "0.0.1"
+  }
+}
