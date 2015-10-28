@@ -9,13 +9,13 @@ module.exports = function(pipelines) {
 	];
 
 	pipelines["htdocs"] = [
-		glob({debounce: 200, basePath: "src"}, "index.html"),
+		glob({basePath: "src"}, "index.html"),
 		// debounce(200),
 		write("dist"),
 		browserSync({
+			logLevel: "silent",
 			server: {
 				baseDir: ["dist"],
-				directory: true,
 				port: 3000,
 				open: false,
 				notify: true
@@ -34,8 +34,7 @@ module.exports = function(pipelines) {
 		debounce(400),
 		concat("combined.js"),
 		env(uglify(), ["production"]),
-		write("dist"),
-		browserSync()
+		write("dist")
 	];
 
 	// pipelines["build-tests"] = [
