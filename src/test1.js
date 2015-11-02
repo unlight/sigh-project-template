@@ -1,4 +1,3 @@
-var x;
 var test1 = 1
 if (test1)
   console.log("totoro")
@@ -6,10 +5,4 @@ if (test1)
 // @ngInject
 function ang($log) {
 
-}
-
-class Greeter {
-  sayHi(name = 'Anonymous') {
-    console.log(`Hi ${name}!`);
-  }
 }

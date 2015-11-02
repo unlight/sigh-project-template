@@ -1,7 +1,19 @@
 var merge, glob, concat, write, env, pipeline;
 var process, uglify, mocha, babel, browserSync;
+var debug;
 
 module.exports = function(pipelines) {
+
+	pipelines["eslint"] = [
+		glob({basePath: "src"}, "*.js"), 
+		process("eslint.cmd src")
+	];
+
+	// pipelines["eslint"] = [
+	// 	glob({basePath: "src"}, "test1.js"), 
+	// 	eslint(),
+	// 	eslintFormat()
+	// ];
 
 	// sigh server -w
 	pipelines["server"] = [

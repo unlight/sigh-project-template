@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp-debug": "^2.1.2",
     "gulp-uglify": "^1.4.2",
     "sigh": "^0.12.22",
     "sigh-babel": "^0.11.6",
