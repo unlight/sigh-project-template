@@ -1,11 +1,28 @@
 var merge, glob, concat, write, env, pipeline;
-var process, uglify, mocha, babel, browserSync;
+var process, uglify, mocha, babel, browserSync, ngAnnotate;
 var debug;
+
+var srcStream = function() {
+	var vinylfs = require("vinyl-fs");
+	var sources = vinylfs.src("src/*.js", {
+		read: false
+	});
+	return sources;
+};
 
 module.exports = function(pipelines) {
 
+	pipelines["ts"] = [
+		glob({
+			basePath: "src"
+		}, "*.ts"),
+		write("dist")
+	];
+
 	pipelines["eslint"] = [
-		glob({basePath: "src"}, "*.js"), 
+		glob({
+			basePath: "src"
+		}, "*.js"),
 		process("eslint.cmd src")
 	];
 
@@ -21,7 +38,9 @@ module.exports = function(pipelines) {
 	];
 
 	pipelines["htdocs"] = [
-		glob({basePath: "src"}, "index.html"),
+		glob({
+			basePath: "src"
+		}, "index.html"),
 		// debounce(200),
 		write("dist"),
 		browserSync({
@@ -38,14 +57,19 @@ module.exports = function(pipelines) {
 	pipelines["build-source"] = [
 		merge(
 			[
-				glob({basePath: "src"}, "**/*.js"), 
-				babel({modules: "common"})
+				glob({
+					basePath: "src"
+				}, "**/*.js"),
+				babel({
+					modules: "common"
+				})
 			]
 			// glob("vendor/*.js", "bootstrap.js")
 		),
-		debounce(400),
+		shell(["echo hello"]),
+		// debounce(100),
 		concat("combined.js"),
-		env(uglify(), ["production"]),
+		env(merge(ngAnnotate(), uglify()), ["production"]),
 		write("dist")
 	];
 
@@ -62,4 +86,11 @@ module.exports = function(pipelines) {
 	// 	debounce(500),
 	// 	mocha({files: "lib/**/*.spec.js"})
 	// ];
+	// 
+	pipelines["inject"] = [
+		glob({
+			basePath: "src"
+		}, "*.html"),
+		write("dist")
+	];
 }
