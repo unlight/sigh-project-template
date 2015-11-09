@@ -8,13 +8,19 @@
   "license": "ISC",
   "devDependencies": {
     "babel": "^5.8.29",
+    "browser-sync": "^2.9.12",
+    "browserify": "^12.0.1",
     "gulp-debug": "^2.1.2",
     "gulp-ng-annotate": "^1.1.0",
     "gulp-uglify": "^1.4.2",
+    "pathmodify": "^0.4.0",
+    "pkg-up": "^1.0.0",
     "sigh": "^0.12.22",
     "sigh-babel": "^0.11.6",
     "sigh-browser-sync": "^0.1.0",
     "sigh-mocha": "^0.1.2",
-    "sigh-process": "0.0.1"
-  }
+    "sigh-process": "0.0.1",
+    "watchify": "^3.6.0"
+  },
+  "dependencies": {}
 }
