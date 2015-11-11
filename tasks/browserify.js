@@ -3,8 +3,13 @@ var pathmodify = require("pathmodify");
 var watchify = require("watchify");
 var path = require("path");
 var pkgUp = require("pkg-up");
+var fs = require("fs");
+
+var stream;
+var root = path.dirname(pkgUp.sync());
 
 var b = browserify({
+	debug: true,
 	entries: "src/main.js",
 	cache: {},
 	packageCache: {},
@@ -13,7 +18,7 @@ var b = browserify({
 b.plugin(watchify);
 b.plugin(pathmodify(), {
 	mods: [
-		pathmodify.mod.dir("~", path.dirname(pkgUp.sync()))
+		pathmodify.mod.dir("~", path.join(root, "src"))
 	]
 });
 
@@ -21,7 +26,15 @@ b.on("update", bundle);
 bundle();
 
 function bundle() {
-	b.bundle().pipe(process.stdout);
+	stream = fs.createWriteStream(path.join(root, "dist/app.js"));
+	b.bundle().pipe(stream);
 }
 
- module.exports = b;
+// if (module.parent === null) {
+// 	stream.on("finish", function() {
+// 		b.close();
+// 	});
+// }
+
+module.exports = b;
+
