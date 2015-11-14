@@ -1,0 +1,6 @@
+:fullscreen a {
+    display: flex;
+}
+$blue: #056ef0;
+
+.blue { color: $blue; }

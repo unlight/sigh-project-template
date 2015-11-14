@@ -1,26 +1,39 @@
 var merge, glob, concat, write, env, pipeline;
-var process, uglify, mocha, babel, browserSync, ngAnnotate, debug;
+var process, uglify, mocha, babel, browserSync, ngAnnotate, debug, postcss;
+
+var browserify = require("./tasks/browserify");
+
+var globOpts = {
+	basePath: "src"
+};
 
 module.exports = function(pipelines) {
 
 	pipelines["build"] = [
 		merge(
 			[
-				glob({basePath: "src"}, "**/*.js"), 
+				glob(globOpts, "**/*.js"), 
 				babel({modules: "common"})
 			],
-			glob({basePath: "src"}, "index.html")
+			[
+				glob(globOpts, "*.css"),
+				postcss([
+					require("autoprefixer")({ browsers: ["last 3 versions"] })
+				])
+			],
+			[
+				glob(globOpts, "index.html")
+			]
 		),
 		env(uglify(), ["production"]),
 		write("dist"),
 		browserSync({
+			// logConnections: true,
+			// logLevel: "debug",
 			open: false,
 			server: {
-				baseDir: ["dist", "."],
-				directory: true,
-				middleware: function (req, res, next) {
-					next();
-				}
+				baseDir: ["dist"],
+				//middleware: require("./tasks/mw")
 			}
 		})
 	];
@@ -41,4 +54,3 @@ module.exports = function(pipelines) {
 		})
 	];
 };
-

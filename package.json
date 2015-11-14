@@ -7,6 +7,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.1.0",
     "babel": "^5.8.29",
     "browser-sync": "^2.9.12",
     "browserify": "^12.0.1",
@@ -19,6 +20,7 @@
     "sigh-babel": "^0.11.6",
     "sigh-browser-sync": "^0.1.0",
     "sigh-mocha": "^0.1.2",
+    "sigh-postcss": "^0.1.2",
     "sigh-process": "0.0.1",
     "watchify": "^3.6.0"
   },
