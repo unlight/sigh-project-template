@@ -1,4 +1,4 @@
-var merge, glob, concat, write, env, pipeline;
+var merge, glob, concat, write, env, pipeline, select, reject;
 var process, uglify, mocha, babel, browserSync, ngAnnotate, debug, postcss;
 
 var browserify = require("./tasks/browserify");
