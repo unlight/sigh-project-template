@@ -1,4 +1,12 @@
 // main.js
 var other = require("~/other");
-console.log(other);
+var util = require("util");
+
+console.log(other, 'main');
+
+
+function fn(a = 'a', ...other) {
+	
+}
+
 module.exports = "main";

@@ -10,9 +10,15 @@ var fs = require("fs");
 
 var b = browserify({
 	// debug: true,
-	entries: "main.js",
+	require: [
+		"angular",
+		"angular-local-storage",
+		"angular-resource",
+		"angular-route",
+		"angular-ui-bootstrap",
+		"formatstring"
+	],
 	cache: {},
-	bundleExternal: false,
 	packageCache: {},
 });
 
@@ -27,7 +33,7 @@ var b = browserify({
 bundle();
 
 function bundle() {
-	stream = fs.createWriteStream(path.join(".", "app.js"));
+	stream = fs.createWriteStream(path.join(".", "vendors.js"));
 	b.bundle().pipe(stream);
 }
 
@@ -38,4 +44,3 @@ function bundle() {
 // }
 
 // module.exports = b;
-

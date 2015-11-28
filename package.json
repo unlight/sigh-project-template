@@ -6,6 +6,9 @@
   "scripts": {},
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "build": "node tasks/factor-bundle.js"
+  },
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "babel": "^5.8.29",
@@ -24,5 +27,16 @@
     "sigh-process": "0.0.1",
     "watchify": "^3.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-angular-module": "0.0.2",
+    "gulp-benchmark": "^1.1.1",
+    "gulp-browatchify": "0.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-bump": "^1.0.0",
+    "gulp-duration": "0.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-size": "^2.0.0"
+  }
 }
