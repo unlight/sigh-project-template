@@ -1,6 +1,7 @@
 var merge, glob, concat, write, env, pipeline, select, reject;
 var process, uglify, mocha, babel, browserSync, ngAnnotate, debug, postcss;
 var bump, rename, duration, notify, size, benchmark, less, browatchify, browserify, angularModule;
+var ts;
 
 // var browserify = require("./tasks/browserify");
 
@@ -85,5 +86,11 @@ module.exports = function(pipelines) {
 			reporter: "spec",
 			files: "test/*.js"
 		})
+	];
+
+	pipelines.explicit.ts = [
+		glob(globOpts, "*.ts"),
+		ts(),
+		write("dist")
 	];
 };

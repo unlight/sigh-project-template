@@ -25,6 +25,7 @@
     "sigh-mocha": "^0.1.2",
     "sigh-postcss": "^0.1.2",
     "sigh-process": "0.0.1",
+    "sigh-ts": "0.0.1",
     "watchify": "^3.6.0"
   },
   "dependencies": {
