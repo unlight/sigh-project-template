@@ -1,5 +1,5 @@
 {
-  "main": "lib/index.js",
+  "main": "lib",
   "scripts": {},
   "keywords": [],
   "license": "Xnet",
@@ -7,8 +7,7 @@
     "ava": "^0.14.0",
     "sigh": "^0.12.29",
     "sigh-ava": "^0.1.4",
-    "sigh-babel": "^0.11.7",
-    "sigh-ts": "0.0.1",
+    "sigh-ts": "0.0.3",
     "typescript": "^1.8.10"
   },
   "dependencies": {},

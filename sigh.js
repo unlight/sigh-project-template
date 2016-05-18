@@ -6,7 +6,7 @@ module.exports = function(pipelines) {
 
     pipelines["build"] = [
         glob({basePath: "src"}, "**/*.ts"),
-        ts(),
+        ts({module: "commonjs", target: "es5"}),
         write("lib"),
         ava({files: "test/*.js", source: "src/**/*.ts"})
     ];
