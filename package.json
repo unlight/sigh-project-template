@@ -1,28 +1,20 @@
 {
-  "name": "sigh-project-template",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {},
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+  ],
+  "license": "XNet",
   "devDependencies": {
-    "autoprefixer": "^6.1.0",
-    "babel": "^5.8.29",
-    "browser-sync": "^2.9.12",
-    "browserify": "^12.0.1",
-    "gulp-debug": "^2.1.2",
-    "gulp-ng-annotate": "^1.1.0",
-    "gulp-uglify": "^1.4.2",
-    "pathmodify": "^0.4.0",
-    "pkg-up": "^1.0.0",
-    "sigh": "^0.12.22",
-    "sigh-babel": "^0.11.6",
-    "sigh-browser-sync": "^0.1.0",
-    "sigh-mocha": "^0.1.2",
-    "sigh-postcss": "^0.1.2",
-    "sigh-process": "0.0.1",
-    "watchify": "^3.6.0"
+    "ava": "^0.14.0",
+    "sigh": "^0.12.29",
+    "sigh-ava": "0.0.1",
+    "sigh-babel": "^0.11.7",
+    "sigh-ts": "0.0.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+  }
 }
