@@ -4,9 +4,9 @@
   "keywords": [],
   "license": "Xnet",
   "devDependencies": {
-    "ava": "^0.14.0",
+    "ava": "^0.15.2",
     "sigh": "^0.12.29",
-    "sigh-ava": "^0.1.4",
+    "sigh-ava": "^0.3.0",
     "sigh-ts": "0.0.3",
     "typescript": "^1.8.10"
   },
