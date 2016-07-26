@@ -1,6 +1,12 @@
 {
-  "main": "lib",
-  "scripts": {},
+  "name": "sigh-project-template",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
+  "main": "./lib",
+  "scripts": {
+    "test": "ava"
+  },
   "keywords": [],
   "license": "Xnet",
   "devDependencies": {
@@ -14,5 +20,11 @@
   "directories": {
     "test": "test"
   },
-  "repository": {}
+  "repository": {},
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
 }
